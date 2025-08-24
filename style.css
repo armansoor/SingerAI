@@ -1,109 +1,98 @@
-/* style.css - Cute + Neon Dark themes, big UI, animations, karaoke highlight */
-/* Fonts loaded via HTML files */
+/* style.css - consistent, cute + neon theme, clean layout, animations */
 
+/* Root theme variables (cute default) */
 :root{
-  --bg: #fff7fb;
-  --card: #fff;
-  --muted: #7a6f7f;
-  --accent: #ff65ab;
-  --accent-2: #ffd1ec;
-  --text: #2a2730;
-  --glass: rgba(255,255,255,0.6);
-  --bp-color: #ffb6d8;
-  --bm-color: #a6e7ff;
-  --note-color: rgba(255,102,178,0.6);
+  --bg1: #fff7fb;
+  --bg2: #ffeef8;
+  --card:#ffffff;
+  --muted:#7a6f7f;
+  --accent:#ff65ab;
+  --accent-2:#ffd1ec;
+  --text:#2a2730;
+  --glass: rgba(255,255,255,0.7);
+  --bp-color:#ffb6d8;
+  --bm-color:#a6e7ff;
 }
 
-/* Neon dark */
+/* Neon dark mode */
 html[data-theme="neon"]{
-  --bg: #0b0c12;
-  --card: #111217;
-  --muted: #9aa3b2;
-  --accent: #ff4d9d;
-  --accent-2: #6f5cff;
-  --text: #f1eff7;
+  --bg1:#07080b;
+  --bg2:#0d0f14;
+  --card:#0f1114;
+  --muted:#9aa3b2;
+  --accent:#ff4d9d;
+  --accent-2:#6f5cff;
+  --text:#f1eff7;
   --glass: rgba(255,255,255,0.03);
-  --bp-color: #ff4d9d;
-  --bm-color: #5ad8ff;
-  --note-color: rgba(90,216,255,0.18);
+  --bp-color:#ff4d9d;
+  --bm-color:#5ad8ff;
 }
 
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
-  margin:0; font-family:'Poppins',Arial,Helvetica,sans-serif;
-  background:linear-gradient(135deg,var(--accent-2) 0%, var(--bg) 100%);
+  margin:0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(135deg,var(--bg2),var(--bg1));
   color:var(--text);
   -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
 }
 
 /* topbar */
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(0,0,0,0.04);position:sticky;top:0;background:linear-gradient(0deg, rgba(255,255,255,0.02), transparent);z-index:20}
-.brand{font-weight:800;font-size:1.25rem;cursor:pointer;color:var(--accent)}
-.navlinks a{margin:0 10px;color:var(--muted);text-decoration:none;font-weight:600}
-.navlinks a.active{color:var(--text);font-weight:800}
-.controls select{padding:8px;border-radius:10px;border:0;background:var(--glass);color:var(--text)}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;background:transparent;position:sticky;top:0;z-index:40}
+.brand{font-weight:900;font-size:1.2rem;color:var(--accent);cursor:pointer}
+.navlinks{display:flex;gap:12px}
+.navlinks a{color:var(--muted);text-decoration:none;font-weight:700}
+.navlinks a.active{color:var(--text)}
+.right-controls select{padding:8px;border-radius:10px;border:0;background:var(--glass)}
 
-/* layout */
-.container{max-width:1100px;margin:24px auto;padding:0 18px}
-.panel{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,0.06);margin-bottom:18px}
-.big-panel{padding:28px}
-.title{font-size:28px;margin-bottom:6px}
-.subtitle{color:var(--muted);margin-bottom:14px}
+/* container & panels */
+.container{max-width:1100px;margin:22px auto;padding:0 16px}
+.panel{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.06);margin-bottom:16px}
+.hero{ text-align:center;padding:28px }
+.hero-title{font-size:28px;margin-bottom:6px}
+.hero-sub{color:var(--muted)}
 
 /* form grid */
 .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
 label{display:block;font-weight:600;color:var(--muted)}
-select{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.05);margin-top:6px;background:transparent}
-.member-checkboxes{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.member-checkboxes label{padding:6px 8px;border-radius:8px;background:var(--glass);cursor:pointer}
+select{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.04);margin-top:6px;background:transparent}
+
+/* extras */
+.extras{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.member-checkboxes{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 
 /* actions */
-.action-row{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
-.btn{padding:12px 18px;border-radius:12px;border:0;cursor:pointer;font-weight:700}
-.primary{background:linear-gradient(90deg,var(--accent),#ff9bd3);color:white;box-shadow:0 10px 30px rgba(255,80,140,0.12)}
+.action-row{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
+.btn{padding:10px 16px;border-radius:12px;border:0;cursor:pointer;font-weight:800}
+.primary{background:linear-gradient(90deg,var(--accent),#ff9bd3);color:white}
 .outline{background:transparent;border:2px solid var(--accent);color:var(--accent)}
-.xlarge{font-size:1.05rem;padding:14px 22px;border-radius:14px}
-.status{margin-top:10px;color:var(--muted);font-weight:600}
+.danger{background:#ff6b6b;color:white}
+.xlarge{font-size:1.05rem;padding:12px 18px;border-radius:14px}
 
 /* preview */
-.preview{background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.5));padding:16px;border-radius:10px;min-height:140px;white-space:pre-wrap;font-family: 'Noto Sans KR', 'Poppins', sans-serif; font-size:15px;}
+.preview{background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));padding:14px;border-radius:10px;min-height:160px;white-space:pre-wrap;font-family:'Noto Sans KR','Poppins',sans-serif}
 
-/* lyrics page specifics */
-.player-controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
-.lyrics-card{padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));min-height:220px}
-.song-meta{font-weight:700;color:var(--muted);margin-bottom:8px}
-.lyrics-render{white-space:pre-wrap;font-family:'Noto Sans KR','Poppins';line-height:1.6;font-size:16px;padding:10px;border-radius:8px}
-
-/* highlight currently speaking */
-.line { padding:6px;border-radius:8px; transition: background 0.2s, transform 0.2s; }
-.line.speaking { background: linear-gradient(90deg, rgba(255,102,178,0.12), rgba(90,216,255,0.08)); transform: translateY(-4px); box-shadow:0 10px 30px rgba(0,0,0,0.06); }
+/* lyrics rendering & karaoke */
+.lyrics-card{padding:12px}
+.lyrics-render{white-space:pre-wrap;font-family:'Noto Sans KR','Poppins',sans-serif;line-height:1.6;font-size:15px;max-height:520px;overflow:auto;padding:10px;border-radius:8px}
+.line{padding:8px;border-radius:8px;transition:all .18s}
+.line.speaking{background: linear-gradient(90deg, rgba(255,102,178,0.12), rgba(90,216,255,0.06));transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.08)}
 
 /* saved list */
 .saved-list .card{padding:10px;border-radius:10px;margin-bottom:8px;background:var(--glass)}
 
-/* members page */
+/* members grid */
 .member-grid{display:flex;flex-wrap:wrap;gap:10px}
-.member-card{flex:1 1 150px;padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.3));text-align:center;font-weight:700;cursor:pointer}
-.member-card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,0.06)}
+.member-card{flex:1 1 140px;padding:12px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.85),rgba(255,255,255,0.75));text-align:center;font-weight:700;cursor:pointer}
+.member-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.06)}
 
-/* floating music notes animation */
-.notes {
-  position:fixed;right:8px;top:40%;pointer-events:none;width:40px;height:40px;opacity:0.12;
-  animation: floatNotes 6s linear infinite;
-}
-@keyframes floatNotes {
-  0%{ transform: translateY(0) rotate(0deg) }
-  50%{ transform: translateY(-20px) rotate(8deg); opacity:0.25 }
-  100%{ transform: translateY(0) rotate(0deg) }
-}
+/* tiny animation for notes */
+.note-floating{position:fixed;right:18px;top:40%;opacity:0.12;animation:float 6s ease-in-out infinite}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-14px)}100%{transform:translateY(0)}}
 
 /* responsive */
-@media (max-width:800px){
-  .form-grid{grid-template-columns:1fr}
-  .action-row{flex-direction:column}
-}
+@media (max-width:780px){ .form-grid{grid-template-columns:1fr} .navlinks{display:none} .hero-title{font-size:22px} }
 
-/* small utility */
+/* hidden utility */
 .hidden{display:none}
