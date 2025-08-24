@@ -1,109 +1,117 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Blink × BM • Generator</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>BLINK × BM • Generate</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css" />
-  <!-- dataset + app -->
+  <link rel="stylesheet" href="style.css"/>
   <script defer src="dataset.js"></script>
-  <script defer src="app.js"></script>
+  <script defer src="script.js"></script>
+  <!-- html2pdf is used for export -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
 </head>
 <body>
   <header class="topbar">
-    <div class="brand" id="homeBtn">BLINK × BM</div>
+    <div class="brand" id="brandHome">BLINK × BM</div>
 
     <nav class="navlinks">
-      <a href="index.html" class="active">Generate</a>
-      <a href="lyrics.html">Lyrics</a>
-      <a href="members.html">Members</a>
-      <a href="about.html">About</a>
+      <a href="index.html" class="nav-link active">Generate</a>
+      <a href="lyrics.html" class="nav-link">Lyrics</a>
+      <a href="members.html" class="nav-link">Members</a>
+      <a href="about.html" class="nav-link">About</a>
     </nav>
 
-    <div class="controls">
-      <select id="themePicker" title="Theme">
+    <div class="right-controls">
+      <select class="themePicker" title="Theme">
         <option value="cute">Cute Pastel</option>
         <option value="neon">Neon Dark</option>
       </select>
     </div>
   </header>
 
-  <main class="page container">
-    <section class="panel big-panel">
-      <h1 class="title">Create a BLINK × BM Fan Song</h1>
-      <p class="subtitle">Choose who sings, language, mood and extras. Each generation is unique — millions of possible songs.</p>
+  <main class="container">
+    <section class="panel hero">
+      <h1 class="hero-title">Create BLINK × BM Fan Songs</h1>
+      <p class="hero-sub">Huge variation, Korean + English, member-wise parts, karaoke highlight, and PDF export — all in browser.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Song Options</h2>
 
       <div class="form-grid">
-        <label>Who sings?
+        <label>
+          Who sings?
           <select id="modeSelect">
-            <option value="both">Both Groups (All)</option>
-            <option value="blackpink">BLACKPINK Only</option>
-            <option value="babymonster">BABYMONSTER Only</option>
-            <option value="solo">Solo (choose)</option>
-            <option value="subunit">Custom Sub-unit (2–3)</option>
+            <option value="both">Both groups (All)</option>
+            <option value="blackpink">BLACKPINK only</option>
+            <option value="babymonster">BABYMONSTER only</option>
+            <option value="solo">Solo (pick)</option>
+            <option value="subunit">Custom sub-unit (2–3)</option>
           </select>
         </label>
 
-        <label id="soloBox" class="hidden">Choose solo:
+        <label id="soloBox" class="hidden">
+          Solo member
           <select id="soloSelect"></select>
         </label>
 
-        <label id="subunitBox" class="hidden">Pick members (2–3):
+        <label id="subunitBox" class="hidden">
+          Pick 2–3 members
           <div id="subunitList" class="member-checkboxes"></div>
         </label>
 
-        <label>Language Mode:
+        <label>
+          Language
           <select id="langMode">
-            <option value="mix" selected>Mixed (EN + KO)</option>
+            <option value="mix">Mixed (EN + KR)</option>
             <option value="en">English only</option>
             <option value="ko">Korean only</option>
           </select>
         </label>
 
-        <label>Mood:
+        <label>
+          Mood
           <select id="moodMode">
+            <option value="hype">Hype</option>
             <option value="cute">Cute</option>
             <option value="savage">Savage</option>
-            <option value="sad">Sad</option>
-            <option value="hype">Hype</option>
+            <option value="sad">Sad / Ballad</option>
             <option value="dreamy">Dreamy</option>
           </select>
         </label>
 
-        <label>Extras:
+        <label>
+          Extras
           <div class="extras">
-            <label><input type="checkbox" id="extraRap"> Add Rap</label>
-            <label><input type="checkbox" id="extraBridge"> Add Bridge</label>
+            <label><input type="checkbox" id="extraRap"> Add Rap section</label>
+            <label><input type="checkbox" id="extraBridge" checked> Add Bridge</label>
             <label><input type="checkbox" id="extraOutro"> Extended Outro</label>
-            <label><input type="checkbox" id="backingPad" checked> Play Backing</label>
+            <label><input type="checkbox" id="backingPad" checked> Backing Pad</label>
           </div>
         </label>
       </div>
 
       <div class="action-row">
-        <button id="generateBtn" class="btn primary xlarge">✨ Generate Song</button>
-        <button id="quickPreview" class="btn">🔀 Quick Preview</button>
+        <button id="generateBtn" class="btn primary xlarge">✨ Generate & Open Lyrics</button>
+        <button id="previewBtn" class="btn">🔀 Quick Preview (TTS)</button>
         <button id="exportBtn" class="btn outline">📤 Export PDF</button>
       </div>
 
-      <div id="status" class="status">Ready — pick options and press Generate.</div>
+      <div id="status" class="status">Ready.</div>
     </section>
 
     <section class="panel">
-      <h3>Preview (last generated)</h3>
-      <pre id="previewBox" class="preview">No song generated yet — press Generate.</pre>
+      <h2>Preview</h2>
+      <pre id="previewBox" class="preview">No song generated yet.</pre>
     </section>
   </main>
 
   <footer class="foot">
     Copyright for "Abdur Rahman Mansoor " Github.com/armansoor 2025
   </footer>
-
-  <!-- html2pdf for export (used on lyrics page too) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
 </body>
 </html>
