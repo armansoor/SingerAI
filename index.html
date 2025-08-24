@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blink × BM • Generator</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- dataset + app -->
+  <script defer src="dataset.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand" id="homeBtn">BLINK × BM</div>
+
+    <nav class="navlinks">
+      <a href="index.html" class="active">Generate</a>
+      <a href="lyrics.html">Lyrics</a>
+      <a href="members.html">Members</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <div class="controls">
+      <select id="themePicker" title="Theme">
+        <option value="cute">Cute Pastel</option>
+        <option value="neon">Neon Dark</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="page container">
+    <section class="panel big-panel">
+      <h1 class="title">Create a BLINK × BM Fan Song</h1>
+      <p class="subtitle">Choose who sings, language, mood and extras. Each generation is unique — millions of possible songs.</p>
+
+      <div class="form-grid">
+        <label>Who sings?
+          <select id="modeSelect">
+            <option value="both">Both Groups (All)</option>
+            <option value="blackpink">BLACKPINK Only</option>
+            <option value="babymonster">BABYMONSTER Only</option>
+            <option value="solo">Solo (choose)</option>
+            <option value="subunit">Custom Sub-unit (2–3)</option>
+          </select>
+        </label>
+
+        <label id="soloBox" class="hidden">Choose solo:
+          <select id="soloSelect"></select>
+        </label>
+
+        <label id="subunitBox" class="hidden">Pick members (2–3):
+          <div id="subunitList" class="member-checkboxes"></div>
+        </label>
+
+        <label>Language Mode:
+          <select id="langMode">
+            <option value="mix" selected>Mixed (EN + KO)</option>
+            <option value="en">English only</option>
+            <option value="ko">Korean only</option>
+          </select>
+        </label>
+
+        <label>Mood:
+          <select id="moodMode">
+            <option value="cute">Cute</option>
+            <option value="savage">Savage</option>
+            <option value="sad">Sad</option>
+            <option value="hype">Hype</option>
+            <option value="dreamy">Dreamy</option>
+          </select>
+        </label>
+
+        <label>Extras:
+          <div class="extras">
+            <label><input type="checkbox" id="extraRap"> Add Rap</label>
+            <label><input type="checkbox" id="extraBridge"> Add Bridge</label>
+            <label><input type="checkbox" id="extraOutro"> Extended Outro</label>
+            <label><input type="checkbox" id="backingPad" checked> Play Backing</label>
+          </div>
+        </label>
+      </div>
+
+      <div class="action-row">
+        <button id="generateBtn" class="btn primary xlarge">✨ Generate Song</button>
+        <button id="quickPreview" class="btn">🔀 Quick Preview</button>
+        <button id="exportBtn" class="btn outline">📤 Export PDF</button>
+      </div>
+
+      <div id="status" class="status">Ready — pick options and press Generate.</div>
+    </section>
+
+    <section class="panel">
+      <h3>Preview (last generated)</h3>
+      <pre id="previewBox" class="preview">No song generated yet — press Generate.</pre>
+    </section>
+  </main>
+
+  <footer class="foot">
+    Copyright for "Abdur Rahman Mansoor " Github.com/armansoor 2025
+  </footer>
+
+  <!-- html2pdf for export (used on lyrics page too) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</body>
+</html>
