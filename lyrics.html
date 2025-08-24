@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Blink × BM • Lyrics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="dataset.js"></script>
+  <script defer src="app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand" id="homeBtn2">BLINK × BM</div>
+    <nav class="navlinks">
+      <a href="index.html">Generate</a>
+      <a href="lyrics.html" class="active">Lyrics</a>
+      <a href="members.html">Members</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="controls">
+      <select id="themePicker2">
+        <option value="cute">Cute Pastel</option>
+        <option value="neon">Neon Dark</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <div class="player-controls">
+        <button id="playAll" class="btn primary">▶ Play TTS</button>
+        <button id="stopAll" class="btn danger">■ Stop</button>
+        <button id="toggleBacking" class="btn">🎹 Toggle Backing</button>
+        <button id="exportPdf" class="btn outline">📥 Export PDF</button>
+        <button id="saveSong" class="btn">💾 Save Song</button>
+      </div>
+
+      <article id="lyricsCard" class="lyrics-card">
+        <div id="songMeta" class="song-meta"></div>
+        <div id="lyricsRender" class="lyrics-render"></div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h4>Saved Songs</h4>
+      <div id="savedSongs" class="saved-list"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    Copyright for "Abdur Rahman Mansoor " Github.com/armansoor 2025
+  </footer>
+</body>
+</html>
