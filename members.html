@@ -1,23 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Members • Blink × BM</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="app.js"></script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>BLINK × BM • Members</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header class="topbar">
-    <div class="brand" id="homeBtn3">BLINK × BM</div>
+    <div class="brand" id="brandHomeM">BLINK × BM</div>
     <nav class="navlinks">
-      <a href="index.html">Generate</a>
-      <a href="lyrics.html">Lyrics</a>
-      <a href="members.html" class="active">Members</a>
-      <a href="about.html">About</a>
+      <a href="index.html" class="nav-link">Generate</a>
+      <a href="lyrics.html" class="nav-link">Lyrics</a>
+      <a href="members.html" class="nav-link active">Members</a>
+      <a href="about.html" class="nav-link">About</a>
     </nav>
-    <div class="controls">
-      <select id="themePicker3">
+    <div class="right-controls">
+      <select class="themePicker" title="Theme">
         <option value="cute">Cute Pastel</option>
         <option value="neon">Neon Dark</option>
       </select>
@@ -27,12 +29,12 @@
   <main class="container">
     <section class="panel">
       <h2>BLACKPINK</h2>
-      <div class="member-grid" id="bpList"></div>
+      <div id="bpList" class="member-grid"></div>
     </section>
 
     <section class="panel">
       <h2>BABYMONSTER</h2>
-      <div class="member-grid" id="bmList"></div>
+      <div id="bmList" class="member-grid"></div>
     </section>
   </main>
 
